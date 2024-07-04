@@ -95,5 +95,31 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         );
       }
     });
+
+    on<AuthLogOut>(
+      (event, emit) async {
+        emit(
+          LoginLoad(),
+        );
+        try {
+          await Future.delayed(
+            const Duration(
+              seconds: 2,
+            ),
+            () {
+              return emit(
+                LoginInitial(),
+              );
+            },
+          );
+        } catch (e) {
+          return emit(
+            LoginFailure(
+              msg: e.toString(),
+            ),
+          );
+        }
+      },
+    );
   }
 }
