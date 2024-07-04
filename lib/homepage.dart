@@ -39,9 +39,11 @@ class Homepage extends StatelessWidget {
             },
             builder: (context, state) {
               if (state is LoginLoad) {
-                return const SpinKitThreeBounce(
-                  size: 20,
-                  color: Colors.white,
+                return const Center(
+                  child: SpinKitThreeBounce(
+                    size: 20,
+                    color: Colors.white,
+                  ),
                 );
               }
               // final authstate =
